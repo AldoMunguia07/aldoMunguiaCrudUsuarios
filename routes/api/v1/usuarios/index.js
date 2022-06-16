@@ -1,5 +1,5 @@
 const express = require('express');
-const UsuarioDao = require('../../../../dao/models/UsuarioDao');
+const UsuarioDao = require('../../../../dao/mongodb/models/UsuarioDao');
 const Usuario = require('../../../../libs/usuarios');
 const router = express.Router();
 

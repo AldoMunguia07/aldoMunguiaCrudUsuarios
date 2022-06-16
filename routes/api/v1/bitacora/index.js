@@ -1,5 +1,5 @@
 const express = require('express');
-const BitacoraDao = require('../../../../dao/models/bitacoraDao');
+const BitacoraDao = require('../../../../dao/sqlite/models/BitacoraDao');
 const Bitacora = require('../../../../libs/bitacora');
 const router = express.Router();
 
