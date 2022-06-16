@@ -1,7 +1,7 @@
 //const Usuario = require('./index');
 const Usuario = require('./index.js');
 const Conexion = require('../../dao/Connection');
-const UsuarioDao = require('../../dao/models/UsuarioDao');
+const UsuarioDao = require('../../dao/sqlite/models/UsuarioDao');
 const fs = require('fs');
 
 describe('Testing Usuarios CRUD', ()=>{

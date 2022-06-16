@@ -1,4 +1,4 @@
-const { db } = require("../Connection");
+const { db } = require("../../Connection");
 const DaoObject = require("../DaoObject")
 
 module.exports = class UsuarioDao extends DaoObject{

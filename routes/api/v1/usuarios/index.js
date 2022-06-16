@@ -77,12 +77,12 @@ router.post('/new', async(req,res) => {
 });
 
 
-router.put('/update/:id', async(req,res) => {
+router.put('/update/:codigo', async(req,res) => {
     try {
-        const {id} = req.params;
+        const {codigo} = req.params;
         const {nombreCompleto, email, estado, avatar, password, fechaIngreso} = req.body;
 
-        if(!(/^\d+$/.test(id)))
+        if(!(/^\d+$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }
@@ -123,7 +123,7 @@ router.put('/update/:id', async(req,res) => {
         }
 
 
-        const updUser = await user.updateUsuario({id, nombreCompleto, email, estado, avatar, password, fechaIngreso});
+        const updUser = await user.updateUsuario({codigo, nombreCompleto, email, estado, avatar, password, fechaIngreso});
         return res.status(200).json(updUser);
     } catch (ex) {
         console.error(ex);
@@ -132,17 +132,17 @@ router.put('/update/:id', async(req,res) => {
     }
 });
 
-router.delete('/delete/:id', async(req,res) => {
+router.delete('/delete/:codigo', async(req,res) => {
     try {
-        const {id} = req.params;
+        const {codigo} = req.params;
 
-        if(!(/^\d+$/.test(id)))
+        if(!(/^\d+$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }
 
 
-        const delUser = await user.deleteUsuario({id});
+        const delUser = await user.deleteUsuario({codigo});
         return res.status(200).json(delUser);
     } catch (ex) {
         console.error(ex);
@@ -151,18 +151,18 @@ router.delete('/delete/:id', async(req,res) => {
     }
 });
 
-router.get('/one/:id', async(req,res) => {
+router.get('/one/:codigo', async(req,res) => {
 
     try
     {
-        const{id} = req.params;
+        const{codigo} = req.params;
 
-        if(!(/^\d+$/.test(id)))
+        if(!(/^\d+$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }
 
-        const FoundUser = await user.getUsuarioByID({id:parseInt(id)});
+        const FoundUser = await user.getUsuarioByID({codigo});
 
         if(!FoundUser)
         {
