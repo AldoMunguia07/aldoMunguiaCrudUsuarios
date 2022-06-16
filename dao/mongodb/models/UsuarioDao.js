@@ -19,7 +19,8 @@ module.exports = class CategoryDao extends DaoObject{
       }
 
       getById({codigo}) {
-        return this.findById(codigo);;
+
+        return this.findById(codigo);
       }
 
 

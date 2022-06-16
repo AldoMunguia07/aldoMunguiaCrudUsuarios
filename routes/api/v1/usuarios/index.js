@@ -82,7 +82,7 @@ router.put('/update/:codigo', async(req,res) => {
         const {codigo} = req.params;
         const {nombreCompleto, email, estado, avatar, password, fechaIngreso} = req.body;
 
-        if(!(/^\d+$/.test(codigo)))
+        if (!(/^(\d+)|([\da-f]{24})$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }
@@ -136,7 +136,7 @@ router.delete('/delete/:codigo', async(req,res) => {
     try {
         const {codigo} = req.params;
 
-        if(!(/^\d+$/.test(codigo)))
+        if (!(/^(\d+)|([\da-f]{24})$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }
@@ -157,7 +157,7 @@ router.get('/one/:codigo', async(req,res) => {
     {
         const{codigo} = req.params;
 
-        if(!(/^\d+$/.test(codigo)))
+        if (!(/^(\d+)|([\da-f]{24})$/.test(codigo)))
         {
             return res.status(400).json({error: 'El código debe ser un dígito válido'})
         }

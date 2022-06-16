@@ -46,19 +46,19 @@ module.exports = class Usuario {
 
 
 
-    async getUsuarioByID({id})  {
+    async getUsuarioByID({codigo})  {
 
-        return this.usuarioDao.getById({id});
+        return this.usuarioDao.getById({codigo});
 
     };
 
-    async updateUsuario({id, nombreCompleto,
+    async updateUsuario({codigo, nombreCompleto,
         email,
         estado,
         avatar,
         password,
         fechaIngreso}) {
-       const result = await this.usuarioDao.updateOne({id, nombreCompleto,
+       const result = await this.usuarioDao.updateOne({codigo, nombreCompleto,
         email,
         estado,
         avatar,
@@ -66,7 +66,7 @@ module.exports = class Usuario {
         fechaIngreso});
 
        return {
-           id: id,
+           codigo: codigo,
            nombreCompleto: nombreCompleto,
             email: email,
             estado: estado,
@@ -78,9 +78,9 @@ module.exports = class Usuario {
 
     };
 
-    async deleteUsuario({id}) {
-        const userToDelete = await this.usuarioDao.getById({id});
-        const result = await this.usuarioDao.deleteOne({id});
+    async deleteUsuario({codigo}) {
+        const userToDelete = await this.usuarioDao.getById({codigo});
+        const result = await this.usuarioDao.deleteOne({codigo});
 
         return {
             ...userToDelete,

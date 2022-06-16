@@ -50,6 +50,7 @@ module.exports = class DaoObject {
       }
 
       findById(_id){
+
         const queryId = {_id: new ObjectId(_id)};
         return this.collection.findOne(queryId);
       }
