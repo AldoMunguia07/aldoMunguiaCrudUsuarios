@@ -52,11 +52,11 @@ describe("Testing Categoria Crud", () => {
     expect(updateResult.acknowledged).toBe(true);
   });
 
-  /*test('Delete One Record', async () => {
+  test('Delete One Record', async () => {
     const deleteResult = await userDao.deleteOne({ codigo: id.toString() });
     console.log(deleteResult);
     expect(deleteResult.acknowledged).toBe(true);
-  });*/
+  });
 
 
 
